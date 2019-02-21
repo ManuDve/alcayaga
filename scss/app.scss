@@ -1,0 +1,822 @@
+@charset 'utf-8';
+
+@import 'settings';
+@import 'foundation';
+@import 'motion-ui';
+
+@include foundation-global-styles;
+@include foundation-grid;
+// @include foundation-flex-grid;
+@include foundation-xy-grid-classes;
+@include foundation-typography;
+@include foundation-button;
+@include foundation-forms;
+// @include foundation-range-input;
+@include foundation-accordion;
+@include foundation-accordion-menu;
+@include foundation-badge;
+@include foundation-breadcrumbs;
+@include foundation-button-group;
+@include foundation-callout;
+@include foundation-card;
+@include foundation-close-button;
+@include foundation-menu;
+@include foundation-menu-icon;
+@include foundation-drilldown-menu;
+@include foundation-dropdown;
+@include foundation-dropdown-menu;
+@include foundation-responsive-embed;
+@include foundation-label;
+@include foundation-media-object;
+@include foundation-off-canvas;
+@include foundation-orbit;
+@include foundation-pagination;
+@include foundation-progress-bar;
+@include foundation-slider;
+@include foundation-sticky;
+@include foundation-reveal;
+@include foundation-switch;
+@include foundation-table;
+@include foundation-tabs;
+@include foundation-thumbnail;
+@include foundation-title-bar;
+@include foundation-tooltip;
+@include foundation-top-bar;
+@include foundation-visibility-classes;
+// @include foundation-float-classes;
+@include foundation-flex-classes;
+
+// @include foundation-prototype-classes;
+
+@include motion-ui-transitions;
+@include motion-ui-animations;
+
+// globales
+
+$cajas: 6rem 2rem 4rem 2rem;
+$altura0: 640px;
+$altura: 700px;
+$altura02: 730px;
+
+
+// colores
+
+$color00: white;
+$color01: #eebd1f;
+$color02: #848f9e;
+$color03: #808080;
+$color04: #bfb7b0;
+$color06: #425060;
+$color07: #cc9c11;
+$color08: #333333;
+
+
+
+// fuentes 
+
+a {
+    font-size: 0.9rem;
+    color: $color03;
+    &:hover {
+        color: $color00;
+    }
+}
+
+h1 {
+  font-weight: 700;
+  color: $color01;
+  @include breakpoint(medium) {
+    font-weight: 300;
+  }
+}
+
+h2 {
+  color: $color02;
+}
+
+h3 {
+  color: $color06;
+}
+
+p {
+  font-family: "Montserrat", sans-serif;
+  color: $color03;
+  font-size: 0.9rem;
+}
+
+h1, h2, h4 {
+    font-family: "Lato", sans-serif;
+}
+
+h3 {
+  font-family: "Ubuntu", sans-serif;
+}
+
+
+  // Fuoc
+  
+  .no-js {
+    @include breakpoint(small only) {
+      .top-bar {
+        display: none;
+      }
+    }
+  
+    @include breakpoint(medium) {
+      .title-bar {
+        display: none;
+      }
+    }
+  }
+  
+  [data-sticky] {
+    width:100%;
+  }
+  
+  .sticky-container {
+    z-index: 5;
+  }
+  
+
+// Nav
+
+#nav  {
+    z-index: 15!important;
+  }
+  
+  .drilldown{
+  
+      a {
+        background-color: $color03;
+        @include breakpoint(small only) {
+          background-color:$color01;
+        }
+      }
+  }
+  
+  .top-bar, .top-bar ul {
+    background-color: transparent;
+    @include breakpoint(small only) {
+      background-color:$color01;
+    }
+  }
+
+  .title-bar {
+    background-color:$color01;
+    box-shadow: $color07 0 1px 3px;
+  }
+  
+  .scrolled {
+    background-color: $color01;
+    transition: 0.2s;
+    @include breakpoint(medium) {
+      box-shadow: $color07 0 0 10px 0;
+    }
+  }
+
+  @include breakpoint(small only) {
+    .top-bar {
+      box-shadow: $color07 0 3px 3px;
+    }
+  }
+
+
+.rwrap {
+    background-color: $color01;
+}
+
+  // Efectos de Transición
+
+a {
+    transition: 0.3s;
+    &:hover {
+      hr {
+        transition: 0.2s;
+        width: 100%;
+      }
+    }
+  }
+  
+  .linenav {
+    margin: 5px 0 0 0;
+    padding: 0;
+    border-bottom: 1px solid $color00;
+    width: 0;
+  }
+
+// Logo
+
+.logomain {
+    height: 30px;
+    width: auto;
+    transition: 0.3s;
+    &:hover {
+      transform: scale(0.98);
+    }
+  }
+  
+  .logomedium, .logosmall {
+    height: 18px;
+    width: auto;
+  }
+
+
+
+.wrapslide {
+    height: $altura0;
+    
+    width: 100%;
+
+    @include breakpoint(medium) {
+      height: $altura;
+    }
+
+    #slider {
+        height: 100%;
+        width: 100%;
+
+        .slide {
+          height: $altura0;
+          width: auto;
+          background-size: cover;
+        }
+
+        .s01 {
+            background: url("../img/s01_s.jpg");
+        }
+        .s02 {
+            background: url("../img/s02_s.jpg");
+        }
+
+        @include breakpoint(medium) {
+
+          .slide {
+            height: $altura;
+            width: 100%;
+            background-size: cover;
+          }
+
+
+          .s01 {
+            background: url("../img/s01.jpg");
+            
+        }
+          .s02 {
+              background: url("../img/s02.jpg");
+          }
+        }
+        
+        h4 {
+          color: white;
+          background-color: rgba($color01, 0.7);
+          padding: 2rem 0;
+          font-weight: 400;
+          text-align: center;
+          font-size: 2rem;
+          position:absolute;
+          top:50%;
+          width: 100%;
+          transform: translateY(-50%);
+          @include breakpoint(medium) {
+            top:100%;
+            padding-bottom: 2rem;
+            transform: translateY(-100%);
+            background-color: initial;
+            font-size: 1.8rem;
+          }
+          strong {
+            color: rgba($color01, 0);
+            display: inherit;
+            height: 0;
+
+            @include breakpoint(medium) {
+              display: inline;
+              color: $color01;
+            }
+          }
+
+        }
+    }
+}
+
+
+// Conocenos
+
+#conocenos {
+  padding: 3rem 2rem;
+  text-align: left;
+  @include breakpoint(medium) {
+    box-sizing: border-box;
+    padding: 4rem 2rem;
+  }
+    
+
+  img {
+    margin: 0 0 2rem 0;
+    @include breakpoint(medium) {
+      max-height: 120px;
+      margin: 4rem 0;
+    }
+  }
+
+  .titulo-como {
+    color: $color06;
+    border: none;
+    @include breakpoint(medium) {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+  }
+  
+  .como {
+    padding: 2rem 0;
+    max-height: 100%;
+    display: none;
+    @include breakpoint(medium) {
+      padding: 0;
+      display: block;
+    }
+  }
+
+  h1 {
+    padding: 1rem 0;
+    border-bottom: $color01 solid 3px;
+    margin-bottom: 2rem;
+    @include breakpoint(medium) {
+      font-size: 2.5rem;
+      padding-top: 6rem;
+      margin-bottom: 4rem;
+    }
+  }
+
+  h2 {
+    padding: 1rem 0;
+    font-weight: 300;
+    font-size: 1.2rem;
+    @include breakpoint(medium) {
+      font-size: 2.5rem;
+    }
+  }
+
+  h3 {
+    font-weight: 700;
+    padding-bottom: 1rem;
+    @include breakpoint(medium) {
+      font-size: 1.3rem;
+      letter-spacing: 1px;
+      font-weight: 400;
+    }
+  }
+
+  h4, h5 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1rem;
+  }
+
+  h4 {
+    color: $color06;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+    border-bottom: $color06 1px solid;
+
+    @include breakpoint(medium) {
+      font-weight: 700;
+    }
+
+    em {
+      color: $color01;
+      font-weight: 400;
+    }
+  }
+
+  h5 {
+    text-align: right;
+    color: $color01;
+    font-weight: 700;
+    padding-top: 1rem;
+  }
+
+
+  p {
+    padding-bottom: 2rem;
+    @include breakpoint(medium) {
+      margin-bottom: 2rem;
+    }
+  }
+
+  .proceso {
+    p {
+      padding-bottom: 0rem;
+      @include breakpoint(medium) {
+        padding-bottom: 2rem;
+      }
+    }
+  }
+
+}
+
+#servicios {
+  padding: 3rem 2rem;
+  text-align: left;
+  background-color: $color01;
+
+  @include breakpoint(medium) {
+    box-sizing: border-box;
+    padding: 6rem 2rem 6rem 2rem;
+  }
+
+  img {
+    max-width: 25%;
+    margin: auto;
+    display: block;
+    padding: 2rem 0;
+    @include breakpoint(medium) {
+      max-width: 85px;
+      padding: 0;
+    }
+  }
+
+  h1, h2, h3, h4, h5, p {
+    color: $color06;
+  }
+
+  h1 {
+    border-bottom: 3px solid $color07;
+    padding-bottom: 1rem;
+    text-align: center;
+    @include breakpoint(medium) {
+      font-weight: 900;
+      text-align: left;
+      font-size: 2.5rem;
+    }
+  }
+
+  h2 {
+    font-weight: 700;
+    padding-bottom: 2rem;
+    text-align: center;
+    @include breakpoint(medium) {
+      text-align: left;
+      padding-top: 1rem;
+      padding-bottom: 4rem;
+      font-size: 1.4rem;
+      font-weight: 900;
+    }
+  }
+
+  h3 {
+    padding-bottom: 1rem;
+    font-size: 1.4rem;
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+    text-align: center;
+    @include breakpoint(medium) {
+      font-weight: 900;
+      text-align: left;
+    }
+
+  }
+
+  p {
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+    text-align: center;
+    @include breakpoint(medium) {
+      text-align: left;
+      padding-bottom: 4rem;
+      margin-right: 1rem;
+    }
+  }
+}
+
+#planes {
+  padding: 3rem 2rem;
+  text-align: left;
+  background-color: $color06;
+
+  @include breakpoint(medium) {
+    box-sizing: border-box;
+    padding: $cajas;
+  }
+
+  img {
+    max-width: 50%;
+    margin: auto;
+    height: auto;
+    display: block;
+    padding: 2rem 0;
+    @include breakpoint(medium) {
+      max-width: 150px;
+      padding: 0;
+      margin: auto;
+
+    }
+  }
+
+  h1, h2, h3, h5, p {
+    color: $color00;
+  }
+
+  h1 {
+    border-bottom: 3px solid $color01;
+    padding-bottom: 1rem;
+    text-align: center;
+    @include breakpoint(medium) {
+      text-align: left;
+      font-weight: 900;
+      font-size: 2.5rem;
+    }
+  }
+
+  h2 {
+    font-weight: 700;
+    padding-bottom: 1rem;
+    text-align: center;
+    @include breakpoint(medium) {
+      text-align: left;
+      padding-top: 1rem;
+      padding-bottom: 4rem;
+      font-size: 1.4rem;
+      font-weight: 900;
+    }
+  }
+
+  h3 {
+    padding-bottom: 1rem;
+    font-size: 1.4rem;
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+    color: $color01;
+    text-align: center;
+    @include breakpoint(medium) {
+      text-align: left;
+      font-weight: 900;
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 3px $color01 solid;
+      margin-top: 2rem;
+      
+    }
+
+  }
+
+  h4 {
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+    @include breakpoint(medium) {
+      font-size: 1.2rem;
+      padding: 0;
+      margin: 0;
+    }
+    
+  }
+
+  ul {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 1em;      
+    
+    li {
+      font-family: "Lato", sans-serif;
+      font-weight: 700;
+      color: $color00;
+      padding-bottom: 1rem;
+       em {
+         font-style: italic;
+         font-weight: 300;
+       }
+    }
+
+    }
+
+    ul > li:before {
+      display: inline-block;
+      color: $color01;
+      content: "-";
+      width: 1em;
+      margin-left: -1em;
+  }
+
+  .precio {
+    background-color: $color01;
+    width: 100%;
+    padding: 1rem 0;
+    text-align: center;
+    color: $color06;
+    @include breakpoint(medium) {
+      padding: 0.5rem;
+      font-size: 1.2rem;
+      position: absolute;
+      bottom: 0;
+      transform: translateY(-50%);
+    }
+  }
+
+  .plan {
+    padding: 2rem 0;
+    border-bottom: 3px $color01 solid;
+    @include breakpoint(medium) {
+      position: relative;
+      min-height: $altura02;
+      padding-bottom: 4rem;
+      margin-bottom: 2rem;
+    }
+  }
+
+  .emprende {
+    padding-top: 0;
+    @include breakpoint(medium) {
+      padding-top: 2rem;
+    }
+  }
+
+}
+
+#experiencia {
+  padding: 3rem 2rem;
+  text-align: left;
+  @include breakpoint(medium) {
+    box-sizing: border-box;
+    padding: 6rem 2rem;
+  }
+
+  h1, h2 {
+    font-family: "Lato", sans-serif;
+  }
+
+
+  h1 {
+    border-bottom: 2px solid $color04;
+    padding-bottom: 1rem;
+    font-weight: 300;
+    color: $color02;
+    @include breakpoint(medium) {
+      font-size: 2.6rem;
+    }
+  }
+
+  h2 {
+    font-weight: 700;
+    padding-bottom: 2rem;
+    color: $color04;
+    @include breakpoint(medium) {
+      padding-top: 1rem;
+      padding-bottom: 4rem;
+      font-size: 1.4rem;
+      font-weight: 900;
+    }
+
+  }
+
+}
+
+// MAP
+
+.mapwrap {
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: initial;
+	line-height: 0.8;
+
+	.overlay { 
+		background:transparent;
+		position:relative;
+		width:100%;height:300px;
+		top:300px;
+		margin-top:-300px;
+	}
+
+	#map-canvas {
+
+		margin: 0px;
+		padding: 0px;
+		min-height: 250px;
+		height: 300px;
+		max-height: 750px;
+		line-height: 0.8;
+
+		img {
+			max-width: none;
+		}
+
+		label {
+			display: inline;
+		}
+	}
+
+	#map-canvas *, #map-canvas *:before, #map-canvas *:after {
+		box-sizing: content-box!important;
+	}    	
+}
+
+// Footer
+
+footer {
+  padding: 4rem 2rem;
+  background-color: $color08;
+
+  .sprites {
+    height: 41px;
+    width: 41px;
+    display: inline-block;
+    margin-right: 1rem;
+  }
+
+  .sp01 {
+    background: url(../img/sprites.png) -113px 0;
+  }
+  .sp02 {
+    background: url(../img/sprites.png) -57px 0;
+  }
+  .sp03 {
+    background: url(../img/sprites.png) 0 0;
+  }
+
+  .f01 {
+    padding-bottom: 2rem;
+    margin-bottom: 1rem;
+
+    img {
+      padding-bottom: 2rem;
+    }
+  }
+  a {
+    color: $color00;
+    &:hover {
+      color: $color01;
+    }
+  }
+
+  h3 {
+    color: $color01;
+    font-family: "Lato", sans-serif;
+    padding-bottom: 0.8rem;
+    border-bottom: 3px $color01 solid;
+  }
+
+  h4 {
+    color: $color00;
+    font-size: 1.3rem;
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+    padding-bottom: 1rem;
+  }
+
+  p {
+    color: $color00;
+    letter-spacing: 1px;
+  }
+
+  @include breakpoint(medium) {
+    padding: 3rem 2rem;
+
+    .f01 {
+      margin-bottom: 2rem;
+    }
+
+    .right {
+      text-align: right;
+    }
+
+    .sprites {
+      float: right;
+      margin-left:0.5rem;
+      margin-right: 0;
+    }
+    
+    .f01 {
+      padding: 0 0 2rem 0;
+      border-bottom: 2px solid $color00;
+    }
+
+    
+
+    h3 {
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    h4 {
+     font-size: 1rem;
+     padding-bottom: 0; 
+    }
+
+    img {
+      max-width: 500px;
+    }
+  }
+
+  @include breakpoint(large only) {
+    .c01 {
+      padding-left: 0;
+      
+    }
+    .c03 {
+      padding-right: 0;
+    }
+  }
+
+
+  
+}
